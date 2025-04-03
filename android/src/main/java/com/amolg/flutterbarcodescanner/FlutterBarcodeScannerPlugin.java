@@ -75,7 +75,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
     /**
      * Plugin registration.
      */
-    public static void registerWith(final PluginRegistry.Registrar registrar) {
+    /*public static void registerWith(final PluginRegistry.Registrar registrar) {
         if (registrar.activity() == null) {
             return;
         }
@@ -86,7 +86,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
         }
         FlutterBarcodeScannerPlugin instance = new FlutterBarcodeScannerPlugin((FlutterActivity) registrar.activity(), registrar);
         instance.createPluginSetup(registrar.messenger(), applicationContext, activity, registrar, null);
-    }
+    }*/
 
     @Override
     public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
@@ -241,7 +241,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
             final BinaryMessenger messenger,
             final Application applicationContext,
             final Activity activity,
-            final PluginRegistry.Registrar registrar,
+            /*final PluginRegistry.Registrar registrar,*/
             final ActivityPluginBinding activityBinding) {
 
 
@@ -254,7 +254,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
         this.applicationContext = applicationContext;
         channel = new MethodChannel(messenger, CHANNEL);
         channel.setMethodCallHandler(this);
-        if (registrar != null) {
+        /*if (registrar != null) {
             // V1 embedding setup for activity listeners.
             observer = new LifeCycleObserver(activity);
             applicationContext.registerActivityLifecycleCallbacks(
@@ -266,7 +266,7 @@ public class FlutterBarcodeScannerPlugin implements MethodCallHandler, ActivityR
             lifecycle = FlutterLifecycleAdapter.getActivityLifecycle(activityBinding);
             observer = new LifeCycleObserver(activity);
             lifecycle.addObserver(observer);
-        }
+        }*/
     }
 
     @Override
